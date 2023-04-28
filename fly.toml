@@ -1,0 +1,18 @@
+app = "<telechatrd23>"
+
+[build]
+  image = "python:3.9"
+  buildpacks = [
+    "heroku/python"
+  ]
+
+[[services]]
+  internal_port = 8443
+  protocol = "tcp"
+
+  [services.concurrency]
+    hard_limit = 1
+    soft_limit = 1
+
+  [[services.ports]]
+    port = "https"
